@@ -5,6 +5,11 @@ import java.util.HashSet;
 
 class GraphNodes {
     static private ArrayList<Node> nodeList=new ArrayList<Node>();
+
+    private static final String INVALID_NODE_ID = "Invalid Node Id!";
+    private static final String NO_ANCESTORS = "There are no ancestors for the given node!";
+    private static final String NO_DESCENDANTS = "There are no descendants for the given node!";
+
     public static void createNode(int node_id,String node_name) {
         Node node=new Node();
         node.setNodeId(node_id);
@@ -25,7 +30,7 @@ class GraphNodes {
             }
         }
         if(currentNode==null) {
-            System.out.println("Invalid Node Id!");
+            System.out.println(INVALID_NODE_ID);
         } else {
             nodeList.remove(currentNode);
             for(Node temp:nodeList) {
@@ -51,7 +56,7 @@ class GraphNodes {
     void displayAncestors(Node node) {
         HashSet<Node> parents=node.parents;
         if(parents==null) {
-            System.out.println("There are no ancestors for the given node!");
+            System.out.println(NO_ANCESTORS);
             return;
         } else {
             System.out.println("Ancestors for the given node are:");
@@ -65,7 +70,7 @@ class GraphNodes {
     void displayDescendants(Node node) {
         HashSet<Node> children=node.children;
         if(children==null) {
-            System.out.println("There are no descendants for the given node!");
+            System.out.println(NO_DESCENDANTS);
             return;
         } else {
             System.out.println("Descendants for the given node are :");

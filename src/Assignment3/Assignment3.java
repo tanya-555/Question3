@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class Assignment3 {
     static Scanner scanner =new Scanner(System.in);
 
+    private static final String NODE_ID_ABSENT = "Node id does not exist!";
+    private static final String INVALID_INPUT = "Invalid input!";
+    private static final String INVALID_NODE_ID = "Invalid Node id!";
+
     //hash set to store unique node_id
     static HashSet<Integer> uniqueId=new HashSet<Integer>();
 
@@ -65,13 +69,13 @@ public class Assignment3 {
                 }
             }
             if(tmpNode==null) {
-                System.out.println("Node id does not exist!");
+                System.out.println(NODE_ID_ABSENT);
             } else {
                 GraphNodes graph_nodes=new GraphNodes();
                 graph_nodes.displayParents(tmpNode);
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void getChildren() {
@@ -87,13 +91,13 @@ public class Assignment3 {
                 }
             }
             if(tmpNode==null) {
-                System.out.println("Node id does not exist!");
+                System.out.println(NODE_ID_ABSENT);
             } else {
                 GraphNodes graph_nodes=new GraphNodes();
                 graph_nodes.displayChildren(tmpNode);
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void getAncestors() {
@@ -109,13 +113,13 @@ public class Assignment3 {
                 }
             }
             if(tmpNode==null) {
-                System.out.println("Node id does not exist!");
+                System.out.println(NODE_ID_ABSENT);
             } else {
                 GraphNodes graph_nodes=new GraphNodes();
                 graph_nodes.displayAncestors(tmpNode);
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void getDescendants() {
@@ -131,13 +135,13 @@ public class Assignment3 {
                 }
             }
             if(tmpNode==null) {
-                System.out.println("Node id does not exist!");
+                System.out.println(NODE_ID_ABSENT);
             } else {
                 GraphNodes graph_nodes=new GraphNodes();
                 graph_nodes.displayDescendants(tmpNode);
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void delDependency() {
@@ -158,7 +162,7 @@ public class Assignment3 {
                 }
             }
             if(parent_node==null || child_node==null) {
-                System.out.println("Invalid Node id!");
+                System.out.println(INVALID_NODE_ID);
             }
             else {
                 parent_node.deleteChild(child_node);
@@ -166,7 +170,7 @@ public class Assignment3 {
                 System.out.println("Dependency removed ");
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input type!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void delNode() {
@@ -176,7 +180,7 @@ public class Assignment3 {
             GraphNodes graph_nodes=new GraphNodes();
             graph_nodes.deleteNode(node_id);
         } catch(NumberFormatException e) {
-            System.out.println("Invalid Input type!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void addDependency() {
@@ -197,7 +201,7 @@ public class Assignment3 {
                 }
             }
             if(parent_node==null || child_node==null) {
-                System.out.println("Invalid Node id!");
+                System.out.println(INVALID_NODE_ID);
             }
             else {
                 parent_node.addChild(child_node);
@@ -205,7 +209,7 @@ public class Assignment3 {
                 System.out.println("Dependency added ");
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input type!");
+            System.out.println(INVALID_INPUT);
         }
     }
     static void addNode() {
@@ -223,7 +227,7 @@ public class Assignment3 {
                 System.out.println("Node added!");
             }
         } catch(NumberFormatException e) {
-            System.out.println("Invalid input type!");
+            System.out.println(INVALID_INPUT);
         }
     }
 }
