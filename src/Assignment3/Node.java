@@ -2,12 +2,16 @@ package Assignment3;
 
 import java.util.HashSet;
 
-
 class Node {
     private int node_id;
     private String node_name;
     HashSet<Node> parents = null;
     HashSet<Node> children = null;
+
+    private static final String DEPENDENCY_ABSENT = "No dependency found!";
+    private static final String NODE_EXISTS_AS_PARENT = "The given node is already added as a parent!";
+    private static final String NODE_EXISTS_AS_CHILD = "The given node is already added as a child!";
+
     Node() {
         parents = new HashSet<Node>();
         children = new HashSet<Node>();
@@ -33,7 +37,7 @@ class Node {
 
     void addParent(Node parent) {
         if(this.parents.contains(parent)) {
-            System.out.println("The given node is already added as a parent!");
+            System.out.println(NODE_EXISTS_AS_PARENT);
         }
         else {
             this.parents.add(parent);
@@ -41,7 +45,7 @@ class Node {
     }
     void addChild(Node child) {
         if(this.children.contains(child)) {
-            System.out.println("The given node is already added as a child!");
+            System.out.println(NODE_EXISTS_AS_CHILD);
         }
         else {
             this.children.add(child);
@@ -52,7 +56,7 @@ class Node {
             this.parents.remove(parent);
         }
         else {
-            System.out.println("No dependency found!");
+            System.out.println(DEPENDENCY_ABSENT);
         }
     }
     void deleteChild(Node child) {
@@ -60,7 +64,7 @@ class Node {
             this.children.remove(child);
         }
         else {
-            System.out.println("No dependency found!");
+            System.out.println(DEPENDENCY_ABSENT);
         }
     }
 
